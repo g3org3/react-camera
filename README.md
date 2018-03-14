@@ -30,4 +30,4 @@ npm i react-easy-camera
 | fileUpload          | function |
 
 ## Example
-[Follow Example](/exmaple)
+[Follow Example](exmaple)
