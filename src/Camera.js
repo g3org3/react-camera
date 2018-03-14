@@ -60,7 +60,7 @@ class Camera extends PureComponent {
     const error = files.length < 1
     const file = error ? {} : files[0]
     const url = error ? '' : window.URL.createObjectURL(file)
-    this.props.onTakePictureGetUrl({ url, file, error })
+    this.props.onTakePicture({ url, file, error })
   }
 
   render() {
@@ -78,14 +78,14 @@ class Camera extends PureComponent {
 }
 
 Camera.defaultProps = {
-  onTakePictureGetUrl: () => {},
+  onTakePicture: () => {},
   onProgress: () => {},
   onReadyStateChange: () => {},
   onLoad: () => {}
 }
 
 Camera.propTypes = {
-  onTakePictureGetUrl: PropTypes.func,
+  onTakePicture: PropTypes.func,
   onProgress: PropTypes.func,
   onReadyStateChange: PropTypes.func,
   onLoad: PropTypes.func
