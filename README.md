@@ -1,8 +1,8 @@
-# react-camera
+# react-easy-camera
 
 ## Install
 ```sh
-npm i @g3org3/camera-react
+npm i react-easy-camera
 ```
 
 ## Usage
@@ -28,3 +28,6 @@ npm i @g3org3/camera-react
 |---------------------|----------|--------------|
 | open                | function |
 | fileUpload          | function |
+
+## Example
+[Follow Example](/exmaple)
