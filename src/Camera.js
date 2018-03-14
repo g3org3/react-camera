@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import fileUpload from 'ajax-file-upload'
 import PropTypes from 'prop-types'
 
 class Camera extends PureComponent {
@@ -8,55 +9,24 @@ class Camera extends PureComponent {
     this.open = this.open.bind(this)
   }
 
-  open() {
+  openMenu() {
     this.input.click()
   }
 
-  parseJSON(raw) {
-    try {
-      return JSON.parse(raw) || {}
-    } catch (e) {
-      return {}
-    }
-  }
-
   fileUpload(file, endpoint) {
-    const xhr = new XMLHttpRequest()
-    const formdata = new FormData()
-
-    formdata.append('file', file)
-    xhr.upload.onprogress = (e) => {
-      if (e.lengthComputable) {
-        const percentage = Math.round((e.loaded * 100) / e.total)
-        this.props.onProgress(percentage)
-      }
-    }
-    xhr.upload.onload = (e) => {
-      this.props.onLoad(e)
-    }
-    
-    xhr.onreadystatechange = () => {
-      const { status, responseText } = xhr
-      if (status) {
-        const isJson = xhr.getResponseHeader('Content-Type')
-          .split(';')
-          .filter(line => line==='application/json')
-          .length === 1
-        this.props.onReadyStateChange({
-          status,
-          response: isJson ? this.parseJSON(responseText) : responseText
-        })
-      }
-    }
-
-    xhr.open('POST', endpoint)
-    xhr.send(formdata)
+    const { onProgress, onLoad, onReadyStateChange } = this.props
+    fileUpload({
+      file,
+      endpoint,
+      onProgress,
+      onLoad,
+      onReadyStateChange
+    })
   }
 
   onChangeHandler(e={}) {
     const target = e.target || {}
     const files = target.files
-    console.log(files)
     const error = files.length < 1
     const file = error ? {} : files[0]
     const url = error ? '' : window.URL.createObjectURL(file)

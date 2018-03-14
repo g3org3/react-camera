@@ -24,6 +24,7 @@
     "rollup-plugin-node-resolve": "^3.2.0"
   },
   "dependencies": {
+    "ajax-file-upload": "^0.0.3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-proptypes": "^1.0.0"
