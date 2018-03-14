@@ -1,4 +1,5 @@
 # react-easy-camera
+📸 simple react camera component
 
 ## Install
 ```sh
