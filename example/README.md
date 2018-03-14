@@ -32,6 +32,6 @@ code my-cool-app/package.json
   "version": "1.0.0",
   "private": true,
   "proxy": "http://localhost:3232", <-
-  . . .
+  // ...
 }
 ```
