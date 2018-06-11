@@ -1,14 +1,14 @@
-# react-mobile-image-handler
+# react-easy-camera
 📸 simple react camera component for mobile usage. You can take an image or select one from the gallery and then send it to the server.
 
 ## Install
 ```sh
-npm i react-mobile-image-handler
+npm i react-easy-camera
 ```
 
 ## Usage
 ```js
-import Camera from 'react-mobile-image-handler'
+import Camera from 'react-easy-camera'
 export default class App extends Component {
   render() {
     return <>
